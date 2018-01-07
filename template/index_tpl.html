@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>loader</title>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+<script src="//nh5.nagezan.net/wx/loveshow/js/loader.min.js"></script>
+<script>
+  (function (loader) {
+    var l = new loader({
+      name: '<%= htmlWebpackPlugin.options.name %>',
+      version: '<%= htmlWebpackPlugin.options.version %>'
+    });
+    l.load('static/lib/js/polyfill.min.js', null, true)
+    l.load('static/lib/js/vue-2.5.13.min.js', null, true)
+    l.load('static/lib/js/vue-router.min.js', null, true)
+    l.load('static/lib/js/vuex.min.js', null, true)
+    l.load('static/lib/js/axios.min.js', null, true)
+  <% for (var j = 0; j < htmlWebpackPlugin.files.css.length; j += 1) { %>
+    l.load('<%= htmlWebpackPlugin.files.css[j] %>', null, true);
+  <% } %>
+  <% for (var i = 0; i < htmlWebpackPlugin.files.js.length; i += 1) { %>
+    l.load('<%= htmlWebpackPlugin.files.js[i] %>', null, true);
+  <% } %>
+  })(lsLoader);
+</script>
+</body>
+</html>
