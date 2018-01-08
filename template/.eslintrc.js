@@ -74,6 +74,8 @@ module.exports = {
   },
   globals: {
     Vue: false,
-      VueRouter: false
+    VueRouter: false,
+    axios: false,
+    Vuex: false
   }
 }
