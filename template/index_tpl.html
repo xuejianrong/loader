@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>loader</title>
+  <title>{{ description }}</title>
   <script async="true" src="https://js.fundebug.cn/fundebug.0.3.3.min.js" apikey="098fc59db0274795f9f148cf735969dad84fa9e11f1b79fc0202ff46b0357677"></script>
 </head>
 <body>
@@ -16,6 +16,7 @@
       name: '<%= htmlWebpackPlugin.options.name %>',
       version: '<%= htmlWebpackPlugin.options.version %>'
     });
+    l.load('static/other/rem.js?w=20', null, true)
     l.load('static/lib/js/polyfill.min.js', null, true)
     l.load('static/lib/js/vue-2.5.13.min.js', null, true)
     l.load('static/lib/js/vue-router.min.js', null, true)
