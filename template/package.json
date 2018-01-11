@@ -25,6 +25,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     {{#lint}}
