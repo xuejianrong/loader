@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   max-width: 20rem;
   margin: 0 auto;
@@ -7,4 +13,13 @@ body {
 
 img {
   width: 100%;
+}
+
+.center {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
 }
