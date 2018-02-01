@@ -1,4 +1,7 @@
 /* eslint-disable */
+/**
+ * otherForLoader
+ */
 (function () {
   function init(){
     var docEl = document.documentElement;
