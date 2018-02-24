@@ -72,6 +72,9 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-console': 0,
+    'arrow-body-style': 0,
+    'comma-dangle': 0,
+    'arrow-parens': 0,
   },
   globals: {
     Vue: false,
@@ -80,5 +83,6 @@ module.exports = {
     Vuex: false,
     _hmt: false,
     ga: false,
+    wx: false,
   }
 }

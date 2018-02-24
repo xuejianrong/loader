@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <h1 style="font-size: 30px; text-align: center">\{{msg}}</h1>
+    <h1 style="font-size: 30px; text-align: center">\{{getterMsg}}</h1>
     {{#router}}
     <router-view/>
     {{else}}
@@ -10,16 +11,28 @@
 </template>
 
 <script>
-{{#unless router}}
-import HelloWorld from './components/HelloWorld';
+  {{#unless router}}
+  import HelloWorld from './components/HelloWorld';
 
-{{/unless}}
-export default {
-  name: 'app'{{#router}}{{else}},
-  components: {
-    HelloWorld,
-  }{{/router}},
-};
+  {{/unless}}
+  export default {
+    name: 'app'{{#router}}{{else}},
+    components: {
+      HelloWorld,
+    }{{/router}},
+    computed: {
+      ...Vuex.mapState([
+        'msg',
+      ]),
+      ...Vuex.mapGetters([
+        'getterMsg',
+        'getDemoDesc'
+      ])
+    },
+    mounted() {
+      console.log(this.getDemoDesc(1));
+    }
+  };
 </script>
 
 <style lang="scss">
