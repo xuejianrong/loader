@@ -20,8 +20,12 @@
     l.load('static/other/rem.js?w=20', null, true)
     l.load('static/lib/js/polyfill.min.js', null, true)
     l.load('static/lib/js/vue-2.5.13.min.js', null, true)
+    {{#router}}
     l.load('static/lib/js/vue-router.min.js', null, true)
+    {{/router}}
+    {{#vuex}}
     l.load('static/lib/js/vuex.min.js', null, true)
+    {{/vuex}}
     l.load('static/lib/js/axios.min.js', null, true)
   <% for (var j = 0; j < htmlWebpackPlugin.files.css.length; j += 1) { %>
     l.load('<%= htmlWebpackPlugin.files.css[j] %>', null, true);
