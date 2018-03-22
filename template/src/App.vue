@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    {{#unless vuex}}
+    <h1 style="font-size: 30px; text-align: center">no vuex</h1>
+    {{/unless}}
+    {{#vuex}}
+    <h1 style="font-size: 30px; text-align: center">\{{msg}}</h1>
+    <h1 style="font-size: 30px; text-align: center">\{{getterMsg}}</h1>
+    {{/vuex}}
     {{#router}}
     <router-view/>
     {{else}}
@@ -10,25 +16,35 @@
 </template>
 
 <script>
-{{#unless router}}
-import HelloWorld from './components/HelloWorld'
+  {{#unless router}}
+  import HelloWorld from './components/HelloWorld';
 
-{{/unless}}
-export default {
-  name: 'app'{{#router}}{{else}},
-  components: {
-    HelloWorld,
-  }{{/router}},
-};
+  {{/unless}}
+  export default {
+    name: 'app'{{#router}}{{else}},
+    components: {
+      HelloWorld,
+    }{{/router}},
+    computed: {
+      {{#vuex}}
+      ...Vuex.mapState([
+        'msg',
+      ]),
+      ...Vuex.mapGetters([
+        'getterMsg',
+        'getDemoDesc'
+      ])
+      {{/vuex}}
+    },
+    mounted() {
+      {{#vuex}}
+      console.log(this.getDemoDesc(1));
+      {{/vuex}}
+    }
+  };
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import "assets/css/base.scss";
+  @import "assets/css/init.scss";
 </style>

@@ -13,7 +13,19 @@
   }
 
   //将js片段插入dom结构
-  function evalGlobal(strScript){
+  function evalGlobal(strScript, url){
+    if (url.indexOf('lib') >= 0 || url.indexOf('other') >= 0) {
+      // 常用文件
+      if (!(strScript.indexOf('ForLoader') >= 0)) {
+        localStorage.removeItem(url);
+        console.error(url + ': 常用文件不包含ForLoader，有可能已经被挟持，loader将不缓存此文件');
+      }
+    } else {
+      if (strScript.indexOf('Vue') < 0) {
+        localStorage.removeItem(url);
+        console.error(url + ': 业务不包含Vue，有可能已经被挟持，loader将不缓存此文件');
+      }
+    }
     var scriptEl = document.createElement ("script");
     scriptEl.type= "text/javascript";
     scriptEl.text= strScript;
@@ -32,7 +44,7 @@
     var type = fileType(url);
     if (type === "js"){
       //with(window)eval(str);
-      evalGlobal(str);
+      evalGlobal(str, url);
     }else if(type === "css"){
       createCss(str);
     }

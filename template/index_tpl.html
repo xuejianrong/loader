@@ -2,24 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>loader</title>
-  <script async="true" src="https://js.fundebug.cn/fundebug.0.3.3.min.js" apikey="098fc59db0274795f9f148cf735969dad84fa9e11f1b79fc0202ff46b0357677"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>{{ description }}</title>
+  <script async="true" src="https://js.fundebug.cn/fundebug.0.3.4.min.js" apikey="098fc59db0274795f9f148cf735969dad84fa9e11f1b79fc0202ff46b0357677"></script>
 </head>
 <body>
 <div id="app"></div>
 <!-- built files will be auto injected -->
-<script src="//nh5.nagezan.net/wx/loveshow/js/loader.min.js"></script>
+<script src="//nh5.nagezan.net/wx/loveshow/js/loader-1.0.1.min.js"></script>
 <script>
   (function (loader) {
     var l = new loader({
       name: '<%= htmlWebpackPlugin.options.name %>',
       version: '<%= htmlWebpackPlugin.options.version %>'
     });
+    l.load('static/other/rem.js?w=20', null, true)
     l.load('static/lib/js/polyfill.min.js', null, true)
     l.load('static/lib/js/vue-2.5.13.min.js', null, true)
+    {{#router}}
     l.load('static/lib/js/vue-router.min.js', null, true)
+    {{/router}}
+    {{#vuex}}
     l.load('static/lib/js/vuex.min.js', null, true)
+    {{/vuex}}
     l.load('static/lib/js/axios.min.js', null, true)
   <% for (var j = 0; j < htmlWebpackPlugin.files.css.length; j += 1) { %>
     l.load('<%= htmlWebpackPlugin.files.css[j] %>', null, true);

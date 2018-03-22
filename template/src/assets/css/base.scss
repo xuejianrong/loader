@@ -1,0 +1,13 @@
+$rem: 18;
+
+$base-font-size: $rem !default;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function rem($value, $context: $base-font-size) {
+  $target: strip-unit($value);
+  $base: strip-unit($context);
+  @return $target / $base + rem
+}
