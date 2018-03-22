@@ -75,6 +75,8 @@ module.exports = {
     'arrow-body-style': 0,
     'comma-dangle': 0,
     'arrow-parens': 0,
+    'linebreak-style': 0,
+    'no-param-reassign': 0,
   },
   globals: {
     Vue: false,
