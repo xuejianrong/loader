@@ -1,13 +1,56 @@
-$rem: 18;
-
-$base-font-size: $rem !default;
-
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+.one-line{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@function rem($value, $context: $base-font-size) {
-  $target: strip-unit($value);
-  $base: strip-unit($context);
-  @return $target / $base + rem
+.center {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.flex {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.flex-wrap {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+.left {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+.flex-end {
+   display: flex;
+   display: -webkit-flex;
+   justify-content: flex-end;
+   -webkit-justify-content: flex-end;
+   align-items: center;
+   -webkit-align-items: center;
+ }
+
+.space-between {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  // flex-wrap: wrap;
+  // -webkit-flex-wrap: wrap;
 }

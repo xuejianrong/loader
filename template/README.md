@@ -1,6 +1,9 @@
 # {{ name }}
 
 > {{ description }}
+vue-cli 模板地址: https://github.com/vuejs/vue-cli/blob/master/README.md#custom-templates
+本地跑使用的是index.html 模板
+生产环境使用的是 index_tpl.html 模板
 
 ## Build Setup
 

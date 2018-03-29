@@ -12,14 +12,16 @@
     {{else}}
     <HelloWorld/>
     {{/router}}
+    <wxWxShare />
   </div>
 </template>
 
 <script>
   {{#unless router}}
   import HelloWorld from './components/HelloWorld';
-
   {{/unless}}
+  import wxWxShare from '@/components/wxShare';
+
   export default {
     name: 'app'{{#router}}{{else}},
     components: {
@@ -36,6 +38,9 @@
       ])
       {{/vuex}}
     },
+    components: {
+      wxWxShare,
+    },
     mounted() {
       {{#vuex}}
       console.log(this.getDemoDesc(1));
@@ -47,4 +52,5 @@
 <style lang="scss">
   @import "assets/css/base.scss";
   @import "assets/css/init.scss";
+  @import "assets/css/function.scss";
 </style>

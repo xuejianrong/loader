@@ -9,17 +9,26 @@ body {
   margin: 0 auto;
   font-size: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+h3,h4,h5,p {
+  margin: 0;
 }
 
 img {
-  width: 100%;
+  width:100%;
+  vertical-align: top;
+  pointer-events: none;/*禁用长按保存图片*/ 
 }
 
-.center {
-  display: flex;
-  display: -webkit-flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  align-items: center;
-  -webkit-align-items: center;
+a{
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
 }

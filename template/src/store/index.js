@@ -4,16 +4,10 @@ export default new Vuex.Store({
   state: {
     msg: 'loader msg',
     demoList: [{ id: 0, desc: 'demo1' }, { id: 1, desc: 'demo2' }],
+    isIos: /ip(hone|od|ad)/i.test((navigator.userAgent || navigator.vendor || window.opera)),
+    isAndroid: /android/i.test((navigator.userAgent || navigator.vendor || window.opera)),
+    inWeixin: /micromessenger/.test(navigator.userAgent.toLowerCase()),
     // 以下的才会用到
-    loadScript: (params) => {
-      // 接收src、callback
-      const js = document.createElement('script');
-      js.setAttribute('src', params.src);
-      const head = document.getElementsByTagName('head')[0] || document.documentElement;
-      head.appendChild(js);
-
-      js.onload = params.callback;
-    },
     isString(str) {
       return typeof str === 'string' || str.constructor === String;
     },
@@ -30,6 +24,19 @@ export default new Vuex.Store({
       img: '',
       desc: '',
       url: '',
+    },
+    // 取得地址栏里的查询字符串
+    getUriParam(key) {
+      const url = location.search.replace(/^\?/, '').split('&');
+      const paramsObj = {};
+      for (let i = 0, iLen = url.length; i < iLen; i += 1) {
+        const param = url[i].split('=');
+        paramsObj[param[0]] = param[1];
+      }
+      if (key) {
+        return paramsObj[key] || '';
+      }
+      return paramsObj;
     },
   },
   getters: {
@@ -95,6 +102,15 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    loadScript: (store, params) => {
+      // 接收src、callback
+      const js = document.createElement('script');
+      js.setAttribute('src', params.src);
+      const head = document.getElementsByTagName('head')[0] || document.documentElement;
+      head.appendChild(js);
+
+      js.onload = params.callback;
+    },
     wxInit({ dispatch }, callback, bindShow = true) {
       dispatch('loadScript', {
         src: '//res.wx.qq.com/open/js/jweixin-1.0.0.js',
