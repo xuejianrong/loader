@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,11 @@
 <body>
 <div id="app"></div>
 <!-- built files will be auto injected -->
-<script src="//nh5.nagezan.net/wx/loveshow/js/loader-1.0.1.min.js"></script>
+<script src="https://nh5.nagezan.net/wx/loveshow/js/loader-1.0.1.min.js"></script>
 <script>
+  //html-webpack-plugin: https://github.com/jantimon/html-webpack-plugin
+  // https://handlebarsjs.com/
+  // https://github.com/janl/mustache.js  mustache被内嵌入很多第三方的框架中，如:Jqury, Dojo
   (function (loader) {
     var l = new loader({
       name: '<%= htmlWebpackPlugin.options.name %>',
