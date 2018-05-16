@@ -37,7 +37,7 @@ export default new Vuex.Store({
     getterMsg: state => `${state.msg} in getter`,
     // 返回一个方法，可带参数的计算或者过滤state中的值
     getDemoDesc: state => id => state.demoList.find(demo => demo.id === id),
-    // 一下的才会用到
+    // 以下的才会用到
   },
   mutations: {
     // 设置state
