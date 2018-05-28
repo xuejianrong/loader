@@ -38,7 +38,7 @@
     },
     mounted() {
       {{#vuex}}
-      console.log(this.getDemoDesc(1));
+      console.log('可带参数的计算或者过滤state中的值:', this.getDemoDesc(1));
       {{/vuex}}
     }
   };
