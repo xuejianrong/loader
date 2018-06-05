@@ -91,6 +91,10 @@ module.exports = {
         },
       ],
     },
+    baiduCode: {
+      type: 'string',
+      message: '百度统计代码id',
+    },
     unit: {
       type: 'confirm',
       message: 'Set up unit tests',
