@@ -22,4 +22,4 @@ $ npm run dev
 $ npm run build
 ```
 
-** 每一次build之前需要在package.json中修改version，否则无法更新修改。是否更新缓存的依据就是这个版本号 **
+**每一次build之前需要在package.json中修改version，否则无法更新修改。是否更新缓存的依据就是这个版本号**
