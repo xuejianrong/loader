@@ -13,7 +13,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const packageConf = require('../package')
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 
-const env = require('../config/prod.env')
+const env = merge(require('../config/prod.env'), { API_HOST: `'${process.env.API_HOST}'` })
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {

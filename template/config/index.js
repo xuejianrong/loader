@@ -47,10 +47,10 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, `../${process.env.API_HOST === 'test' ? 'dist' : 'dist_online'}/index.html`),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, `../${process.env.API_HOST === 'test' ? 'dist' : 'dist_online'}`),
     assetsSubDirectory: 'static',
     assetsPublicPath: '',
 
